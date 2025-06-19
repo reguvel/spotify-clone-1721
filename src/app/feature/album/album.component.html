@@ -1,0 +1,24 @@
+<div class="album-container">
+  <app-media-info-card
+    [mediaData]="albumData()"
+    [mediaType]="'Album'"
+    [totalDuration]="totalDuration()"
+  ></app-media-info-card>
+  <app-media-controls
+    [mediaType]="'album'"
+    [mediaId]="albumId()"
+  ></app-media-controls>
+  <app-songs-table
+    [columns]="[
+      { key: 'sno', header: '#', width: '5%' },
+      { key: 'title', header: 'Title', width: '90%' },
+      { key: 'duration', header: 'Duration', width: '5%' }
+    ]"
+    [songs]="(songs$ | async) ?? []"
+    [mediaType]="'album'"
+    [mediaId]="albumId()"
+    [songsMeta]="[]"
+    (onRowClick)="onRowClick($event)"
+    (onLike)="handleLike($event)"
+  ></app-songs-table>
+</div>

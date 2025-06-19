@@ -1,0 +1,26 @@
+.playlist-page {
+    position: relative;
+  }
+  .find-more {
+    position: sticky;
+    bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  .find-more-button {
+    background: var(--spotify-green);
+    color: var(--spotify-white);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+  }
+  .find-more-button:hover {
+    background: var(--spotify-dark-green);
+  }
+  .songs-data{
+    overflow-y: scroll;
+    max-height: 450px;
+  }

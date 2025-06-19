@@ -1,0 +1,39 @@
+<div class="modal-overlay" *ngIf="isOpen()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Playlist</h2>
+        <fa-icon [icon]="faTimes" class="close-icon" (click)="onClose.emit()"></fa-icon>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="imgUrl">Image URL</label>
+          <input
+            id="imgUrl"
+            type="text"
+            [(ngModel)]="updatedPlaylist.img"
+            placeholder="Enter image URL"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            [(ngModel)]="updatedPlaylist.name"
+            placeholder="Enter playlist name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            [(ngModel)]="updatedPlaylist.description"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="save-button" (click)="onSave.emit(updatedPlaylist)">Save</button>
+      </div>
+    </div>
+  </div>

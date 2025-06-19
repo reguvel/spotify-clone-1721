@@ -1,0 +1,22 @@
+<div class="dropdown">
+    <div class="dropdown-header">
+        <span>Add to Playlist</span>
+        <button class="done-button" (click)="closeDropdown()">
+          <fa-icon [icon]="faTimes" class="done-icon"></fa-icon>
+        </button>
+      </div>
+    <ul>
+      @for(playlist of playlists(); track playlist.id) {
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              [checked]="playlistSelections().get(playlist.id)"
+              (change)="togglePlaylist(playlist.id)"
+            />
+            {{ playlist.name }}
+          </label>
+        </li>
+      }
+    </ul>
+  </div>

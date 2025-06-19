@@ -1,0 +1,26 @@
+.media-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  height: var(--media-controls-height);
+  padding: 1rem;
+}
+.library-icon, .options-icon {
+  cursor: pointer;
+  color: var(--spotify-dark);
+  transition: all 0.3s ease;
+  background-color: var(--spotify-green);
+  border-radius: 50%;
+  padding: 6px;
+}
+.library-icon.in-library {
+  color: var(--spotify-white);
+  background-color: var(--spotify-green);
+  border-radius: 50%;
+  padding: 5px;
+}
+.options-icon:hover {
+  /* background-color: var(--spotify-dark-green); */
+} 

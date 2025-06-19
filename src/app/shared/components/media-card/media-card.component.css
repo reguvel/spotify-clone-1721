@@ -1,0 +1,56 @@
+.media-card {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--spotify-dark);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.media-card:hover {
+  background-color: var(--card-background);
+}
+.media-card:hover .media-image img{ 
+  opacity: 0.5;
+}
+.media-image {
+  position: relative; /* To position the play/pause button absolutely */
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+}
+
+.media-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.media-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.media-name {
+  font-weight: var(--font-weight-bold);
+}
+
+.media-description {
+  font-size: var(--font-size-very-small);
+  color: var(--text-color-muted);
+}
+
+.play-pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* z-index: 1000; */
+  /* Already set to opacity: 0 via initiallyVisible input */
+}
+
+.media-card:hover .play-pause-overlay {
+  opacity: 1; /* Show on hover */
+}

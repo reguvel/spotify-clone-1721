@@ -1,0 +1,127 @@
+<div class="audio-player">
+  <!-- Song Description -->
+  <div class="song-description">
+    <div class="song-image">
+      <img [src]="state().currentSong?.img || '../../../../assets/images/Liked_Songs_Default_Cover.png'" alt="Song Cover">
+    </div>
+    <div class="song-details">
+      <span class="song-name">{{ state().currentSong?.name || 'No Song Playing' }}</span>
+      <span class="song-artist">{{ state().currentSong?.artist || '' }}</span>
+    </div>
+  </div>
+
+  <!-- Player Controls -->
+  <div class="player-controls">
+    <div class="control-buttons">
+      <app-icon-button [icon]="faShuffle" size="lg"></app-icon-button>
+      <app-icon-button [icon]="faBackward" size="lg"(click)="playPrevious()"></app-icon-button>
+      <app-icon-button
+        [icon]="state().isPlaying ? faPause : faPlay"
+        size="2x"
+        (click)="togglePlayPause()"
+      ></app-icon-button>
+      <app-icon-button [icon]="faForward" size="lg" (click)="playNext()"></app-icon-button>
+      <app-icon-button [icon]="faRepeat" size="lg"></app-icon-button>
+    </div>
+    <div class="progress-bar">
+      <span class="current-duration">{{ formatTime(currentTime()) }}</span>
+      <input
+      type="range"
+      [min]="0"
+      [max]="state().audio?.duration || parseDuration(state().currentSong?.duration || '0:00')"
+      [value]="currentTime()"
+      class="seek-slider range"
+      (input)="seek($event)"
+    >
+      <span class="total-duration">{{ formatTime(state().audio?.duration || parseDuration(state().currentSong?.duration || '0:00')) }}</span>
+    </div>
+  </div>
+
+  <!-- Player Options -->
+  <div class="player-options">
+    <app-icon-button [icon]="faListUl" size="lg"></app-icon-button>
+    <app-icon-button [icon]="faMicrophoneLines" size="lg"></app-icon-button>
+    <app-icon-button [icon]="faBars" size="lg"></app-icon-button>
+    <app-icon-button [icon]="faLaptop" size="sm"></app-icon-button>
+    <app-icon-button
+    [icon]="state().volume === 0 ? faVolumeMute : faVolumeHigh"
+    (click)="toggleVolume()"
+    size="lg"
+  ></app-icon-button>
+  <input
+    type="range"
+    min="0"
+    max="100"
+    [value]="state().volume * 100"
+    class="volume-slider range"
+    (input)="setVolume($event)"
+  >
+    <app-icon-button [icon]="faCompress" size="lg"></app-icon-button>
+    <app-icon-button [icon]="faExpand" size="lg"></app-icon-button>
+  </div>
+</div>
+ 
+ <!-- <div class="audio-player" *ngIf="state().songId">
+  
+    <div class="song-description">
+      <div class="song-image">
+        <img
+          [src]="currentSong().img || 'assets/images/Liked_Songs_Default_Cover.png'"
+          alt="Song Cover"
+        />
+      </div>
+      <div class="song-details">
+        <span class="song-name">{{ currentSong().name || 'No Song' }}</span>
+        <span class="song-artist">{{ currentSong().artist || 'Unknown Artist' }}</span>
+      </div>
+    </div>
+  
+  
+    <div class="player-controls">
+      <div class="control-buttons">
+        <app-icon-button [icon]="faShuffle" size="lg"></app-icon-button>
+        <app-icon-button [icon]="faBackward" size="lg" (click)="previousSong()"></app-icon-button>
+        <app-icon-button
+          [icon]="state().isPlaying ? faPause : faPlay"
+          size="2x"
+          (click)="togglePlayPause()"
+        ></app-icon-button>
+        <app-icon-button [icon]="faForward" size="lg" (click)="nextSong()"></app-icon-button>
+        <app-icon-button [icon]="faRepeat" size="lg"></app-icon-button>
+      </div>
+      <div class="progress-bar">
+        <span class="current-duration">{{ state().readableCurrentTime }}</span>
+        <input
+          type="range"
+          min="0"
+          [max]="state().totalDuration"
+          [value]="state().currentDuration"
+          class="seek-slider range"
+          (input)="seekTo($event)"
+        />
+        <span class="total-duration">{{ state().readableTotalDuration }}</span>
+      </div>
+    </div>
+  
+    <div class="player-options">
+      <app-icon-button [icon]="faListUl" size="lg"></app-icon-button>
+      <app-icon-button [icon]="faMicrophoneLines" size="lg"></app-icon-button>
+      <app-icon-button [icon]="faBars" size="lg"></app-icon-button>
+      <app-icon-button [icon]="faLaptop" size="sm"></app-icon-button>
+      <app-icon-button
+        [icon]="isMuted() ? faVolumeMute : faVolumeHigh"
+        size="lg"
+        (click)="toggleMute()"
+      ></app-icon-button>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        [value]="state().volume * 100"
+        class="volume-slider range"
+        (input)="setVolume($event)"
+      />
+      <app-icon-button [icon]="faCompress" size="lg"></app-icon-button>
+      <app-icon-button [icon]="faExpand" size="lg"></app-icon-button>
+    </div>
+  </div> -->

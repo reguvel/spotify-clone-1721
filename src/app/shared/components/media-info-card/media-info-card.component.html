@@ -1,0 +1,100 @@
+<!-- <div class="media-info-card">
+  <div class="media-image-container">
+    <img [src]="mediaData()?.img || '../../../../assets/images/Liked_Songs_Default_Cover.png'" class="media-image" alt="">
+  </div>
+  <div class="media-details">
+    @if (mediaData(); as data) {
+      @if (isAlbum(data)) {
+    <span class="media-type">Album</span>}
+    @else{
+      <span class="media-type">Playlist</span>
+    }
+  }
+    <span class="media-heading">{{mediaData()?.name}}</span>
+
+    <div class="media-description"> 
+      @if (mediaData(); as data) {
+        @if (isAlbum(data)) {
+      <div class="media-image-container2">
+        <img [src]="mediaData()?.img" class="media-image2" alt="">
+      </div>
+    }
+  }
+      <span class="media-artist">{{mediaData()?.artist}} </span>
+
+      @if (mediaData(); as data) {
+        @if (isAlbum(data)) {
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-year">{{data.year}} </span><span class="secondary data-separator">•</span>
+          <span class="secondary media-count-duration">{{data.songs.length}} songs, {{totalDuration()}}</span>
+        }
+        @else if (isPlaylist(data)) {
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-year">{{data.year}} </span>
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-count-duration">{{data.songs.length}} songs, {{totalDuration()}}</span>
+        }
+      }
+      
+    </div>
+  </div>
+</div> -->
+<div class="media-info-card">
+  <div class="media-image-container">
+    <img
+      [src]="mediaData()?.img || '../../../../assets/images/Liked_Songs_Default_Cover.png'"
+      class="media-image"
+      alt=""
+    />
+    @if (mediaType() === 'Playlist') {
+      <div class="edit-image-overlay" (click)="onEdit.emit()">
+        <fa-icon [icon]="faPen" class="edit-icon"></fa-icon>
+        <span>Choose Photo</span>
+      </div>
+    }
+  </div>
+  <div class="media-details">
+    @if (mediaData(); as data) {
+      @if (isAlbum(data)) {
+        <span class="media-type">Album</span>
+      } @else {
+        <span class="media-type">Playlist</span>
+      }
+    }
+    @if (mediaType() === 'Playlist' && mediaData()) {
+      <input
+        class="media-heading-input"
+        [(ngModel)]="mediaData()!.name"
+        (blur)="updatePlaylistName()"
+        (keydown.enter)="updatePlaylistName()"
+      />
+    } @else {
+      <span class="media-heading" (click)="mediaType() === 'Playlist' ? onEdit.emit() : null">
+        {{ mediaData()?.name }}
+      </span>
+    }
+  
+    <div class="media-description">
+      @if (mediaData(); as data) {
+        @if (isAlbum(data)) {
+          <div class="media-image-container2">
+            <img [src]="mediaData()?.img" class="media-image2" alt="" />
+          </div>
+        }
+      }
+      <span class="media-artist">{{ mediaData()?.artist }}</span>
+  
+      @if (mediaData(); as data) {
+        @if (isAlbum(data)) {
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-year">{{ data.year }}</span>
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-count-duration">{{ data.songs.length }} songs, {{ totalDuration() }}</span>
+        } @else if (isPlaylist(data)) {
+          <span class="secondary data-separator">•</span>
+          <span class="secondary media-count-duration">{{ data.songs.length }} songs, {{ totalDuration() }}</span>
+        }
+      }
+    </div>
+  </div>
+  </div>

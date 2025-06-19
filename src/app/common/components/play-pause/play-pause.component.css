@@ -1,0 +1,17 @@
+.play-pause-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.play-pause-button:hover {
+  transform: scale(1.05);
+}
+
+/* Center the icon by adjusting for FontAwesome's natural offset */
+fa-icon {
+  /* margin-left: 2px; Adjust for play icon's natural offset */
+}

@@ -1,0 +1,25 @@
+<div class="media-controls">
+  <app-play-pause
+    [mediaType]="mediaType()"
+    [mediaId]="mediaId()"
+  ></app-play-pause>
+  <fa-icon
+    class="library-icon"
+    [icon]="inLibrary() ? faCheck : faPlus"
+    [size]="'1x'"
+    (click)="toggleLibrary()"
+  ></fa-icon>
+  @if (mediaType() === 'playlist') {
+    <fa-icon
+      class="options-icon"
+      [icon]="faEllipsis"
+      [size]="'1x'"
+      (click)="toggleDropdown()"
+    ></fa-icon>
+    <app-dropdown
+      [options]="['Edit', 'Delete']"
+      [isOpen]="showDropdown()"
+      (onSelect)="handleDropdownSelect($event)"
+    ></app-dropdown>
+  }
+</div>

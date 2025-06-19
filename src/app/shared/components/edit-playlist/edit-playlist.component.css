@@ -1,0 +1,72 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background: var(--card-background-hover);
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    color: var(--spotify-white);
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .modal-header h2 {
+    font-size: var(--font-size-medium);
+    margin: 0;
+  }
+  .close-icon {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: var(--font-size-small);
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--spotify-gray);
+    border-radius: 4px;
+    background: var(--background-color);
+    color: var(--spotify-white);
+    font-size: var(--font-size-small);
+  }
+  .form-group textarea {
+    height: 100px;
+    resize: none;
+  }
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .save-button {
+    background: var(--spotify-green);
+    color: var(--spotify-white);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+  }
+  .save-button:hover {
+    background: var(--spotify-dark-green);
+  }

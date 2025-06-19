@@ -1,0 +1,38 @@
+.dropdown-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--card-background-hover);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 200px;
+    padding: 8px 0;
+  }
+  
+  .playlist-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .playlist-item {
+    padding: 8px 16px;
+    color: var(--spotify-white);
+    font-size: var(--font-size-small);
+  }
+  
+  .playlist-item:hover {
+    background-color: var(--background-color);
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    accent-color: var(--spotify-green);
+  }

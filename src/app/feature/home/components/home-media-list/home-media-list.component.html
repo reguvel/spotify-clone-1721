@@ -1,0 +1,38 @@
+<div class="home-media-list">
+  <div class="section-header">
+    <h2>{{listHeading()}}</h2>
+    <a href="#" class="show-all">Show All</a>
+  </div>
+
+  <div class="media-card-list-wrapper">
+    <!-- Left vignette gradient -->
+    <div class="vignette vignette-left"></div>
+
+    <!-- Scrollable container -->
+    <div class="media-card-list" (scroll)="onScroll($event)" #cardList>
+      @for (item of mediaList(); track item.id) {
+      
+        @if (isAlbum(item)) {
+          <a (click)="navigateToAlbum(item?.id)">
+            <app-home-media-card [mediaData]="item"></app-home-media-card>
+          </a>
+        } @else if (isPlaylist(item)) {
+          <a (click)="navigateToPlaylist(item?.id)">
+            <app-home-media-card [mediaData]="item"></app-home-media-card>
+          </a>
+        }
+      }
+    </div>
+
+    <!-- Right vignette gradient -->
+    <div class="vignette vignette-right"></div>
+
+    <!-- Navigation buttons -->
+    <button class="nav-button nav-button-left" *ngIf="showLeftButton" (click)="scrollLeft(cardList)">
+      <fa-icon class="fac-icon" [icon]="faLeft"></fa-icon>
+    </button>
+    <button class="nav-button nav-button-right" *ngIf="showRightButton" (click)="scrollRight(cardList)">
+      <fa-icon class="fac-icon" [icon]="faRight"></fa-icon>
+    </button>
+  </div>
+</div>

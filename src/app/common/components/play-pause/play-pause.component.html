@@ -1,0 +1,31 @@
+<button
+  class="play-pause-button"
+  [style.width.px]="buttonSize()"
+  [style.height.px]="buttonSize()"
+  [style.backgroundColor]="backgroundColor()"
+  [style.borderRadius]="borderRadius()"
+  (click)="$event.stopPropagation(); togglePlayPause()"
+  [attr.aria-label]="isPlaying() ? 'Pause' : 'Play'"
+>
+  @if (isPlaying()) {
+    <fa-icon [icon]="faPause" size="xl" [style.color]="iconColor()"></fa-icon>
+  } @else {
+    <fa-icon [icon]="faPlay" size="xl" [style.color]="iconColor()"></fa-icon>
+  }
+</button>
+
+<!-- <button
+  class="play-pause-button"
+  [style.width.px]="buttonSize()"
+  [style.height.px]="buttonSize()"
+  [style.backgroundColor]="backgroundColor()"
+  [style.borderRadius]="borderRadius()"
+  (click)="togglePlayPause()"
+  [attr.aria-label]="isPlaying() ? 'Pause' : 'Play'"
+>
+  @if (isPlaying()) {
+    <fa-icon [icon]="faPause" size="xl" [style.color]="iconColor()"></fa-icon>
+  } @else {
+    <fa-icon [icon]="faPlay" size="xl" [style.color]="iconColor()"></fa-icon>
+  }
+</button> -->

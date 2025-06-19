@@ -1,0 +1,41 @@
+<div class="fallback-container">
+    <h2>Let's add some songs to your playlist</h2>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search for songs or artists..."
+        (input)="searchSongs()"
+      />
+    </div>
+    <div class="song-list">
+      @for (song of filteredSongs(); track song.id) {
+        <div class="song-row">
+          <div class="song-info">
+            <div class="song-image">
+              <img [src]="song.img || 'assets/images/Liked_Songs_Default_Cover.png'" alt="Song Cover" />
+              <app-play-pause
+                [buttonSize]="24"
+                [backgroundColor]="'transparent'"
+                [borderRadius]="'0'"
+                [iconColor]="'var(--spotify-white)'"
+                [song]="song"
+                class="play-pause-overlay"
+                (onToggle)="handlePlayPause(song, $event)"
+              ></app-play-pause>
+            </div>
+            <div class="song-details">
+              <span class="song-name">{{ song.name }}</span>
+              <span class="song-artist">{{ song.artist }}</span>
+            </div>
+          </div>
+          <span class="album-name">{{ song.albumName }}</span>
+          <fa-icon
+            [icon]="faPlus"
+            class="add-icon"
+            (click)="addSong(song.id)"
+          ></fa-icon>
+        </div>
+      }
+    </div>
+  </div>

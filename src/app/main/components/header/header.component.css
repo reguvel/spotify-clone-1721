@@ -1,0 +1,21 @@
+:host{
+    width: 100%;
+    height: var(--header-height);
+    background: var(--topbar-background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* opacity: 0; */
+}
+.header-container{
+    background-color: var(--background-color);
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+.spotify-logo-svg{
+    fill:var(--spotify-white);
+}
+

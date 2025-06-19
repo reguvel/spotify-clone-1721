@@ -1,0 +1,157 @@
+
+.table-container {
+  /* max-height: 450px; */
+  overflow-y: auto;
+  display: block;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-book);
+  font-size: var(--font-size-small);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--card-background-hover);
+  z-index: 1;
+}
+
+th,
+td {
+  padding: 8px 32px;
+  text-align: left;
+}
+
+th {
+  color: var(--text-color-muted);
+  font-weight: var(--font-weight-book);
+  font-size: var(--font-size-very-small);
+}
+
+td {
+  font-size: var(--font-size-small);
+}
+
+tr:hover {
+  background-color: var(--card-background-hover);
+  cursor: pointer;
+}
+
+/* Serial Number with Play/Pause */
+.sno-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 24px; /* Match play/pause button size */
+}
+
+.sno-text {
+  transition: opacity 0.2s ease;
+}
+
+.play-pause-overlay {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  opacity:0;
+}
+
+.body-rows:hover .sno-text {
+  opacity: 0; /* Hide serial number on hover */
+}
+
+.body-rows:hover .play-pause-overlay {
+  opacity: 1; /* Show play/pause on hover */
+}
+
+/* Duration with Like Button */
+.duration-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.duration-text {
+  flex: 1;
+}
+
+
+
+.like-button {
+  position: absolute;
+  left: -24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.like-button.liked {
+  /* background-color: var(--spotify-green); */
+  /* border-radius: 50%; */
+  /* padding: 2.5px; */
+  
+}
+
+.like-icon {
+  color: var(--spotify-gray);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.like-button.liked .like-icon {
+  color: var(--spotify-gray);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.body-rows:hover .like-button {
+  opacity: 1; /* Show both faHeart and faPlus on hover */
+}
+
+.like-button:hover .like-icon {
+  color: var(--spotify-green);
+  transform: scale(1.2);
+}
+
+/* Song Description */
+.song-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.song-image img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.song-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.song-name {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--spotify-white);
+}
+
+.song-artist {
+  font-size: var(--font-size-very-small);
+  color: var(--spotify-gray);
+}

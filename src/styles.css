@@ -1,0 +1,213 @@
+/* Font faces for CircularStd */
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./assets/fonts/CircularStd-Book.otf') format('opentype');
+    font-weight: 400;
+    /* Book (Normal) */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./assets/fonts/CircularStd-Light.otf') format('opentype');
+    font-weight: 300;
+    /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./assets/fonts/CircularStd-Medium.otf') format('opentype');
+    font-weight: 500;
+    /* Medium */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./assets/fonts/CircularStd-Bold.otf') format('opentype');
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url('./assets/fonts/CircularStd-Black.otf') format('opentype');
+    font-weight: 900;
+    /* Black */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Define CSS variables for colors and fonts */
+:root {
+    /* Font variables */
+    --font-family-primary: 'CircularStd', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-book: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Font Sizes */
+    --font-size-base: 16px;
+    --font-size-media-heading: 96px;
+    --font-size-heading: 24px;
+    --font-size-subheading: 20px;
+    --font-size-small: 14px;
+    --font-size-very-small: 12px;
+
+    /* Core Spotify colors */
+    --spotify-green: #1db954;
+    /* Mountain Meadow - Primary action color */
+    --spotify-green-hover: #3fd273;
+    --spotify-dark: #191414;
+    /* Cod Gray - Main background */
+    --spotify-white: #ffffff;
+    /* Text and button text */
+    --spotify-gray: #b3b3b3;
+    /* Muted text (e.g., artist names, secondary info) */
+    --spotify-dark-gray: #282828;
+    /* Slightly lighter than Cod Gray for secondary backgrounds */
+    --spotify-black: #000000;
+    /* Pure black for overlays and gradients */
+
+    /* General UI */
+    --background-color: var(--spotify-dark);
+    /* Main app background */
+    --text-color: var(--spotify-white);
+    /* Primary text */
+    --text-color-muted: var(--spotify-gray);
+    /* Secondary text */
+    --border-color: #333333;
+    /* Borders for cards, dividers */
+
+    /* Primary action (buttons, highlights) */
+    --primary-color: var(--spotify-green);
+    /* Primary buttons, play button */
+    --primary-color-hover: #1ed760;
+    /* Lighter green for hover (Spotify’s hover color) */
+    --primary-button-background: var(--primary-color);
+    --primary-button-background-hover: var(--primary-color-hover);
+    --primary-button-text: var(--spotify-white);
+    --primary-button-text-hover: var(--spotify-white);
+
+    /* Secondary action (e.g., cancel buttons, filter pills) */
+    --secondary-button-background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent white */
+    --secondary-button-background-hover: rgba(255, 255, 255, 0.3);
+    --secondary-button-text: var(--spotify-white);
+    --secondary-button-text-hover: var(--spotify-white);
+
+    /* Section backgrounds */
+    --topbar-background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent top bar */
+    --leftbar-background: var(--spotify-dark);
+    /* Side pane (Your Library) */
+    --playingbar-background: var(--spotify-dark );
+    /* Bottom bar */
+    --home-hero-background: linear-gradient(rgba(0, 0, 0, 0.5), var(--spotify-dark));
+    /* Home page gradient */
+    --playlist-hero-gradient: linear-gradient(rgba(0, 0, 0, 0.7), var(--spotify-dark));
+    /* Playlist/Album page gradient */
+    --album-hero-gradient: linear-gradient(rgba(0, 0, 0, 0.7), var(--spotify-dark));
+    /* Album page gradient */
+
+    /* Scrollbar */
+    --scrollbar-track-color: #333333;
+    --scrollbar-handle-color: #535353;
+    --scrollbar-handle-active-color: #737373;
+
+    /* Card backgrounds (e.g., playlist, album cards) */
+    --card-background: #282828;
+    /* Card backgrounds */
+    --card-background-hover: #333333;
+    /* Hover state for cards */
+
+
+
+    /* Layout dimensions */
+    --header-height: 4rem;
+    /* 64px */
+    --audioplayer-height: 4.5rem;
+    /* 72px */
+    --media-info-card-height: 14rem;
+
+    --media-controls-height: 4rem;
+    
+    --songs-table-height: calc(100vh - var(--header-height) - var(--audioplayer-height) - var( --media-info-card-height) - var(--media-controls-height));
+
+    --sidepanel-width: 22%;
+    /* ~420px at 1920px */
+    --dashboard-width: calc(100% - 22%);
+    /* ~1476px at 1920px */
+}
+
+
+/* default margins and ensure full viewport height */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-book);
+    font-size: var(--font-size-base);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-handle-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-handle-active-color);
+}
+
+
+
+
+
+/* Styles for Mobile */
+/* @media (max-width: 768px) {
+    :root {
+      --header-height: 3.5rem; 
+      --audioplayer-height: 4rem; 
+      --sidepanel-width: 100%; 
+      --dashboard-width: 100%; 
+    }
+  
+    .main-content {
+      flex-direction: column; 
+    }
+  
+    app-side-panel, app-dashboard {
+      width: 100%;
+      max-height: 50vh; 
+    }
+  
+    app-side-panel {
+      order: 2; 
+    }
+  
+    app-dashboard {
+      order: 1;
+    }
+  }
+   */

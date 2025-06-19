@@ -1,0 +1,115 @@
+.home-media-list {
+    /* padding: 16px 0px; */
+    /* margin: 16px 0px 0px 16px; */
+    color: var(--spotify-white);
+    /* padding: 0px 24px; */
+
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-left: 24px;
+  }
+  
+  .section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .section-header h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .show-all {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--spotify-light-gray);
+    text-decoration: none;
+  }
+  
+  .show-all:hover {
+    text-decoration: underline;
+  }
+  
+  .media-card-list-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .media-card-list {
+   
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 8px 24px;
+    /* min-height: 205px; */
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  
+  
+  .vignette {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .vignette-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+  }
+  
+  .vignette-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+  
+  .nav-button:hover {
+    opacity: 1;
+  }
+  
+  .media-card-list-wrapper:hover .nav-button {
+    opacity: 1;
+  }
+  
+  .nav-button-left {
+    left: 10px;
+  }
+  
+  .nav-button-right {
+    right: 10px;
+  }
+  
+  .fac-icon {
+    color: var(--spotify-gray);
+    /* font-size: 24px; */
+    /* z-index: 10000; */
+  }

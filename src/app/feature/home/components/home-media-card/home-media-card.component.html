@@ -1,0 +1,31 @@
+<!-- <div class="home-media-card">
+    <div class="media-image">
+        <img [src]="mediaData()?.img|| '../../../../assets/images/Liked_Songs_Default_Cover.png'" alt="">
+        <app-play-pause
+      [buttonSize]="48"
+      (onToggle)="onPlayPauseToggle($event)"
+      class="play-pause-overlay">
+    </app-play-pause>
+    </div>
+    <div class="media-name">
+        <span>{{mediaData()?.name}}</span>
+    </div>
+</div> -->
+
+<div class="home-media-card">
+    <div class="media-image">
+      <img
+        [src]="mediaData()?.img || '../../../../assets/images/Liked_Songs_Default_Cover.png'"
+        alt=""
+      >
+      <app-play-pause
+        [buttonSize]="48"
+        [mediaType]="mediaData()?.type"
+        [mediaId]="mediaData()?.id"
+        class="play-pause-overlay"
+      ></app-play-pause>
+    </div>
+    <div class="media-name">
+      <span>{{ mediaData()?.name }}</span>
+    </div>
+  </div>

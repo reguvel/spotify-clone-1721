@@ -1,0 +1,11 @@
+<div class="media-cards-conatiner">
+    <div class="library-search"></div>
+    <div class="song-group-lists">
+        @for(album of albumsList(); track album.name){
+        <a (click)="navigateToAlbum(album.id)"><app-media-card [mediaData]="album"></app-media-card></a>
+        }
+        @for(playlist of playlistsList(); track playlist.name){
+        <a (click)="navigateToPlaylist(playlist.id)"><app-media-card [mediaData]="playlist"></app-media-card></a>
+        }
+    </div>
+</div>

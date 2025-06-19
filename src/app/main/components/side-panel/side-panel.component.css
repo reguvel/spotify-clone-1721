@@ -1,0 +1,60 @@
+:host {
+    width: var(--sidepanel-width);
+    background: var(--leftbar-background);
+ 
+}
+
+.side-panel-header-container {
+    height: 6.5rem;
+}
+
+.side-panel-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    padding: 12px 16px 8px 16px;
+    font-weight: var(--font-weight-bold);
+}
+
+.panel-button{
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: var(--font-size-small);
+    background-color: var(--card-background);
+    cursor: pointer;
+    color: var(--spotify-white);
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.panel-button:hover{
+    background-color: var(--card-background-hover);
+}
+
+.side-panel-pill-filter{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    margin: 8px 16px;
+}
+ .side-panel-header-conatiner {
+    padding: 1rem;
+    background: var(--background-color);
+    color: var(--spotify-white);
+  }
+  .side-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .side-panel-heading {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+  }
+  .side-panel-pill-filter {
+    display: flex;
+    gap: 8px;
+  }

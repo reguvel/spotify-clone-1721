@@ -1,0 +1,63 @@
+<!-- <div class="playlist-page">
+  <app-media-info-card
+    [mediaData]="playlistData()"
+    [totalDuration]="totalDuration()"
+  ></app-media-info-card>
+  <app-media-controls
+    [mediaType]="'playlist'"
+    [mediaId]="playlistId()"
+  ></app-media-controls>
+  <app-songs-table
+    [columns]="[      { key: 'sno', header: '#', width: '5%' },      { key: 'title', header: 'Title', width: '40%' },      { key: 'albumName', header: 'Album', width: '25%' },      { key: 'dateAdded', header: 'Date added', width: '25%' },      { key: 'duration', header: 'Duration', width: '5%' }    ]"
+    [songs]="songsList()"
+    [songsMeta]="songsMeta()"
+    [mediaType]="'playlist'"
+    [mediaId]="playlistId()"
+    (onRowClick)="onRowClick($event)"
+  ></app-songs-table>
+</div> -->
+
+<div class="playlist-page">
+  <app-media-info-card
+    [mediaData]="playlistData()"
+    [totalDuration]="totalDuration()"
+    [mediaType]="'Playlist'"
+    (onEdit)="showEditModal.set(true)"
+  ></app-media-info-card>
+  <app-media-controls
+    [mediaType]="'playlist'"
+    [mediaId]="playlistId()"
+    (onEdit)="showEditModal.set(true)"
+  ></app-media-controls>
+  <div class="songs-data">
+  @if (songsList().length > 0) {
+    <app-songs-table
+      [columns]="[
+        { key: 'sno', header: '#', width: '5%' },
+        { key: 'title', header: 'Title', width: '40%' },
+        { key: 'albumName', header: 'Album', width: '25%' },
+        { key: 'dateAdded', header: 'Date added', width: '25%' },
+        { key: 'duration', header: 'Duration', width: '5%' }
+      ]"
+      [songs]="songsList()"
+      [songsMeta]="songsMeta()"
+      [mediaType]="'playlist'"
+      [mediaId]="playlistId()"
+      (onRowClick)="onRowClick($event)"
+    ></app-songs-table>
+  }   @if (showFallback()) {
+    <app-playlist-song-adder [playlistId]="playlistId()"></app-playlist-song-adder>
+  }
+  @if (!showFallback()) {
+    <div class="find-more">
+      <button class="find-more-button" (click)="showFallback.set(true)">Find More</button>
+    </div>
+  } 
+  <app-edit-playlist
+    [isOpen]="showEditModal()"
+    [playlist]="playlistData()"
+    (onSave)="updatePlaylist($event)"
+    (onClose)="showEditModal.set(false)"
+  ></app-edit-playlist>
+</div>
+</div>

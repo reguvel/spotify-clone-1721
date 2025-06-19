@@ -1,0 +1,81 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        @for (column of columns(); track column.key) {
+          <th [style.width]="column.width">{{ column.header }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (songEntry of songs(); track $index; let i = $index) {
+        <tr class="body-rows" (click)="onRowClick.emit(songs()[i])">
+          @for (column of columns(); track column.key) {
+            <td [style.width]="column.width">
+              @if (column.key === 'sno') {
+                <div class="sno-container">
+                  <span class="sno-text">{{ i + 1 }}</span>
+                  <app-play-pause
+                    [buttonSize]="24"
+                    [backgroundColor]="'transparent'"
+                    [borderRadius]="'0'"
+                    [iconColor]="'var(--spotify-white)'"
+                    [mediaType]="mediaType()"
+                    [mediaId]="mediaId()"
+                    [song]="songs()[i]"
+                    class="play-pause-overlay"
+                    (onToggle)="handlePlayPause(songs()[i], $event)"
+                  ></app-play-pause>
+                </div>
+              } @else if (column.key === 'title') {
+                <div class="song-description">
+                  @if (columns().length != 3) {
+                    <div class="song-image">
+                      <img
+                        [src]="songs()[i].img || 'assets/images/Liked_Songs_Default_Cover.png'"
+                        alt="Song Cover"
+                      >
+                    </div>
+                  }
+                  <div class="song-details">
+                    <span class="song-name">{{ songs()[i].name }}</span>
+                    <span class="song-artist">{{ songs()[i].artist }}</span>
+                  </div>
+                </div>
+              } @else if (column.key === 'duration') {
+                <div class="duration-container">
+                  <button
+                    class="like-button"
+                    [ngClass]="{'liked': songs()[i].liked}"
+                    (click)="$event.stopPropagation(); handleLike(songs()[i])"
+                  >
+                    <fa-icon
+                      [icon]="songs()[i].liked ? faPlus : faHeart"
+                      class="like-icon"
+                    ></fa-icon>
+                  </button>
+                  <span class="duration-text">
+                    {{ getSongProperty(songs()[i], songsMeta()?.[i], column.key) }}
+                  </span>
+                  @if (showDropdown()[songs()[i].id]) {
+                    <app-add-to-playlist
+                      [song]="songs()[i]"
+                      (onToggle)="handlePlaylistToggle($event)"
+                      (onClose)="closeDropdown(songs()[i].id)"
+                    ></app-add-to-playlist>
+                  }
+                </div>
+              } @else {
+                @if (songsMeta()?.[i]) {
+                  {{ getSongProperty(songs()[i], songsMeta()![i], column.key) }}
+                } @else {
+                  {{ getSongProperty(songs()[i], undefined, column.key) }}
+                }
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
